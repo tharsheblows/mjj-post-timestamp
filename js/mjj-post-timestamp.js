@@ -71,7 +71,7 @@ jQuery( document ).ready( function( $ ){
 
 		// This is a description. At the end, we make an input to use to force edit_date in /wp-admin/includes/post.php around line 141
 		// This is incredibly ugly isn't it? I'm leaving it for now. 
-		timestamp.after( "<div class='uts-description' style='font-size:80%; color:#666; line-height: 1.2; margin: 7px 0 7px 25px;'>The timestamp below is in UTC. The date you see above is offset according to <a href='/wp-admin/options-general.php'>your local site settings</a>. You are currently UTC" + MJJPostTimestamp.gmt_offset + "<input type='hidden' name='edit_date'></div>");	
+		timestamp.after( "<div class='uts-description' style='font-size:80%; color:#666; line-height: 1.2; margin: 7px 0 7px 25px;'>The timestamp below is in UTC. The date you see above is offset according to <a href='/wp-admin/options-general.php'>your local site settings</a>. You are currently UTC" + ( "+" + MJJPostTimestamp.gmt_offset ).slice( -2 ) + "<input type='hidden' name='edit_date'></div>");	
 
 		// What happens when someone clicks edit? The timestamp input form appears. Like magic.
 		timestampdiv.siblings( "a.edit-timestamp" ).click( function( event ) {
